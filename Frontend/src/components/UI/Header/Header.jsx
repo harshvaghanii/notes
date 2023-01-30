@@ -7,16 +7,19 @@ import {
     Navbar,
     NavDropdown,
 } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
         <Navbar bg="primary" expand="lg" variant="dark">
             <Container>
-                <Navbar.Brand href="/">Note Zipper</Navbar.Brand>
+                <Navbar.Brand as={NavLink} to={"/"}>
+                    Note Zipper
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="m-auto">
-                        <Form inline>
+                        <Form inline={"true"}>
                             <FormControl
                                 type="text"
                                 placeholder="Search"
@@ -25,15 +28,17 @@ const Header = () => {
                         </Form>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#link">My Notes</Nav.Link>
+                        <Nav.Link to="/notes" as={NavLink}>
+                            My Notes
+                        </Nav.Link>
                         <NavDropdown
                             title="Harsh Vaghani"
                             id="basic-nav-dropdown"
                         >
-                            <NavDropdown.Item href="#action/3.1">
+                            <NavDropdown.Item as={Link} to={"/profile"}>
                                 My Profile
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
+                            <NavDropdown.Item as={Link} to={"/"}>
                                 Logout
                             </NavDropdown.Item>
                         </NavDropdown>

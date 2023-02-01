@@ -4,6 +4,8 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 const port = process.env.PORT;
+const connectDB = require("./database/connection");
+connectDB();
 
 // Importing Routes
 const notesRoute = require("./routes/notesRoute");
